@@ -20,7 +20,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,16 +30,46 @@ public class MainActivity extends AppCompatActivity {
         // Set the content of the activity to use the activity_main.xml layout file
         setContentView(R.layout.activity_main);
 
-        TextView vwNumbers = (TextView) findViewById(R.id.numbers);
+        TextView vwNumbers = (TextView) findViewById(R.id.txt_vw_numbers);
 
         vwNumbers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(v.getContext(), "Toast Message Number Testing", Toast.LENGTH_SHORT).show();
-                Intent intentNumber = new Intent(MainActivity.this, NumbersActivity.class);
-                startActivity(intentNumber);
+                //Toast.makeText(v.getContext(), "Toast Message Number Testing", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(MainActivity.this, NumbersActivity.class);
+                startActivity(i);
             }
         });
+        TextView vwFamily = (TextView) findViewById(R.id.txt_vw_family);
+
+        vwFamily.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, FamilyActivity.class);
+                startActivity(i);
+            }
+        });
+
+        TextView vwPhrases = (TextView) findViewById(R.id.txt_vw_phrases);
+
+        vwPhrases.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, PharsesActivity.class);
+                startActivity(i);
+            }
+        });
+
+        TextView vwColors = (TextView) findViewById(R.id.txt_vw_colors);
+
+        vwColors.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, ColorsActivity.class);
+                startActivity(i);
+            }
+        });
+
 
     }
 
