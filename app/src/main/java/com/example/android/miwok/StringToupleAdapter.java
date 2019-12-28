@@ -44,6 +44,7 @@ public class StringToupleAdapter extends ArrayAdapter<StringTouple> {
 
         if (currentTouple.isImageAvailable()) {
             iconView.setImageResource(currentTouple.getImageID());
+            iconView.setVisibility(View.VISIBLE);
         } else {
             iconView.setVisibility(View.GONE);
         }
