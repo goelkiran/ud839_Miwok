@@ -4,18 +4,21 @@
     android:layout_height="match_parent"
     android:layout_marginLeft="16dp"
     android:layout_marginTop="16dp"
+    android:layout_marginBottom="16dp"
     android:orientation="vertical">
 
     <TextView
         android:id="@+id/txt_vw_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Main" />
+        android:text="Main"
+        android:textSize="48sp" />
 
     <TextView
         android:id="@+id/txt_vw_sub"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Sub" />
+        android:text="Sub"
+        android:textSize="36sp" />
 
 </LinearLayout>
