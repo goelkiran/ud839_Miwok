@@ -10,14 +10,17 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 
 import java.util.ArrayList;
 
 public class StringToupleAdapter extends ArrayAdapter<StringTouple> {
 
+    private int mBackgroundColor;
 
-    public StringToupleAdapter(@NonNull Context context, ArrayList<StringTouple> st) {
+    public StringToupleAdapter(@NonNull Context context, ArrayList<StringTouple> st, int backgroundColor) {
         super(context, 0, st);
+        mBackgroundColor = backgroundColor;
     }
 
     @NonNull
@@ -36,9 +39,11 @@ public class StringToupleAdapter extends ArrayAdapter<StringTouple> {
 
         TextView mainTextView = listItemView.findViewById(R.id.txt_vw_main);
         mainTextView.setText(currentTouple.getMiWokTranslation());
+        mainTextView.setBackgroundColor(ContextCompat.getColor(getContext(), mBackgroundColor));
 
         TextView subTextView = listItemView.findViewById(R.id.txt_vw_sub);
         subTextView.setText(currentTouple.getDefaultTranslation());
+        subTextView.setBackgroundColor(ContextCompat.getColor(getContext(), mBackgroundColor));
 
         ImageView iconView = (ImageView) listItemView.findViewById(R.id.img_vw_icon);
 

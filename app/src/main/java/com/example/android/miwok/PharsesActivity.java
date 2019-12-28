@@ -28,7 +28,7 @@ public class PharsesActivity extends AppCompatActivity {
         numberStrings.add(new StringTouple("chalo chalen", "lets go."));
         numberStrings.add(new StringTouple("yanha aao", "come here"));
 
-        StringToupleAdapter itemsAdapter = new StringToupleAdapter(this, numberStrings);
+        StringToupleAdapter itemsAdapter = new StringToupleAdapter(this, numberStrings, R.color.category_phrases);
         ListView listView = (ListView) findViewById(R.id.root_view_numbers);
         listView.setAdapter(itemsAdapter);
 

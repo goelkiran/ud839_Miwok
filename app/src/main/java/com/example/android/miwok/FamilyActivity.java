@@ -28,7 +28,7 @@ public class FamilyActivity extends AppCompatActivity {
         numberStrings.add(new StringTouple("dadi", "grandmother",R.drawable.family_grandmother));
         numberStrings.add(new StringTouple("dada", "grandfather",R.drawable.family_grandfather));
 
-        StringToupleAdapter itemsAdapter = new StringToupleAdapter(this, numberStrings);
+        StringToupleAdapter itemsAdapter = new StringToupleAdapter(this, numberStrings, R.color.category_family);
         ListView listView = (ListView) findViewById(R.id.root_view_numbers);
         listView.setAdapter(itemsAdapter);
 

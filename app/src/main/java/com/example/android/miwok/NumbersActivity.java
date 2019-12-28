@@ -28,9 +28,8 @@ public class NumbersActivity extends AppCompatActivity {
         numberStrings.add(new StringTouple("nou", "nine",R.drawable.number_nine));
         numberStrings.add(new StringTouple("dus", "ten",R.drawable.number_ten));
 
-        StringToupleAdapter itemsAdapter = new StringToupleAdapter(this, numberStrings);
+        StringToupleAdapter itemsAdapter = new StringToupleAdapter(this, numberStrings, R.color.category_numbers);
         ListView listView = (ListView) findViewById(R.id.root_view_numbers);
         listView.setAdapter(itemsAdapter);
-
-    }
+        }
 }
