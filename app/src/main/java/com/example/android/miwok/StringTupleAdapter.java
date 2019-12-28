@@ -45,7 +45,7 @@ public class StringTupleAdapter extends ArrayAdapter<StringTuple> {
         subTextView.setText(currentTouple.getDefaultTranslation());
         subTextView.setBackgroundColor(ContextCompat.getColor(getContext(), mBackgroundColor));
 
-        ImageView iconView = (ImageView) listItemView.findViewById(R.id.img_vw_icon);
+        ImageView iconView = listItemView.findViewById(R.id.img_vw_icon);
 
         if (currentTouple.isImageAvailable()) {
             iconView.setImageResource(currentTouple.getImageID());

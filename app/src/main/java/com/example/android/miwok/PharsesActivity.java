@@ -29,7 +29,7 @@ public class PharsesActivity extends AppCompatActivity {
         numberStrings.add(new StringTuple("yanha aao", "come here"));
 
         StringTupleAdapter itemsAdapter = new StringTupleAdapter(this, numberStrings, R.color.category_phrases);
-        ListView listView = (ListView) findViewById(R.id.root_view_numbers);
+        ListView listView = findViewById(R.id.root_view_numbers);
         listView.setAdapter(itemsAdapter);
 
     }

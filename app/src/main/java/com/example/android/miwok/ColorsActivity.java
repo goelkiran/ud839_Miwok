@@ -27,7 +27,7 @@ public class ColorsActivity extends AppCompatActivity {
         numberStrings.add(new StringTuple("salati", "gray", R.drawable.color_gray));
 
         StringTupleAdapter itemsAdapter = new StringTupleAdapter(this, numberStrings, R.color.category_colors);
-        ListView listView = (ListView) findViewById(R.id.root_view_numbers);
+        ListView listView = findViewById(R.id.root_view_numbers);
         listView.setAdapter(itemsAdapter);
 
     }

@@ -4,7 +4,7 @@ public class StringTuple {
 
     private String mStringMiWok;
     private String mStringEnglish;
-    private int mImageID =0;
+    private int mImageID = 0;
     private boolean mImageAvailable = false;
 
 
@@ -37,7 +37,9 @@ public class StringTuple {
         return mImageID;
     }
 
-    public boolean isImageAvailable() {return mImageAvailable; }
+    public boolean isImageAvailable() {
+        return mImageAvailable;
+    }
 }
 
 

@@ -17,9 +17,10 @@ package com.example.android.miwok;
 
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         // Set the content of the activity to use the activity_main.xml layout file
         setContentView(R.layout.activity_main);
 
-        TextView vwNumbers = (TextView) findViewById(R.id.txt_vw_numbers);
+        TextView vwNumbers = findViewById(R.id.txt_vw_numbers);
 
         vwNumbers.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-        TextView vwFamily = (TextView) findViewById(R.id.txt_vw_family);
+        TextView vwFamily = findViewById(R.id.txt_vw_family);
 
         vwFamily.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        TextView vwPhrases = (TextView) findViewById(R.id.txt_vw_phrases);
+        TextView vwPhrases = findViewById(R.id.txt_vw_phrases);
 
         vwPhrases.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        TextView vwColors = (TextView) findViewById(R.id.txt_vw_colors);
+        TextView vwColors = findViewById(R.id.txt_vw_colors);
 
         vwColors.setOnClickListener(new View.OnClickListener() {
             @Override
