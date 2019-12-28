@@ -1,9 +1,8 @@
 package com.example.android.miwok;
 
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -30,19 +29,12 @@ public class NumbersActivity extends AppCompatActivity {
         numberStrings.add("nine");
         numberStrings.add("ten");
 
+        ArrayAdapter<String> itemsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, numberStrings);
 
-        LinearLayout llNumbers = (LinearLayout) findViewById(R.id.root_view_numbers);
+        ListView listView = (ListView) findViewById(R.id.root_view_numbers);
 
-        int ii = 0;
-        while (ii < numberStrings.size()) {
-            TextView numberWord = new TextView(this);
-            numberWord.setText(numberStrings.get(ii));
-            llNumbers.addView(numberWord);
+        listView.setAdapter(itemsAdapter);
 
-            Log.v("MiWok Number Activity", "Word at index [" + ii + "] = " + numberStrings.get(ii));
-
-            ii++;
-        }
 
     }
 }
