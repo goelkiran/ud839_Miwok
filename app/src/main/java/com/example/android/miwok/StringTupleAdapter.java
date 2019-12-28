@@ -14,11 +14,11 @@ import androidx.core.content.ContextCompat;
 
 import java.util.ArrayList;
 
-public class StringToupleAdapter extends ArrayAdapter<StringTouple> {
+public class StringTupleAdapter extends ArrayAdapter<StringTuple> {
 
     private int mBackgroundColor;
 
-    public StringToupleAdapter(@NonNull Context context, ArrayList<StringTouple> st, int backgroundColor) {
+    public StringTupleAdapter(@NonNull Context context, ArrayList<StringTuple> st, int backgroundColor) {
         super(context, 0, st);
         mBackgroundColor = backgroundColor;
     }
@@ -35,7 +35,7 @@ public class StringToupleAdapter extends ArrayAdapter<StringTouple> {
                     R.layout.list_items, parent, false);
         }
 
-        StringTouple currentTouple = getItem(position);
+        StringTuple currentTouple = getItem(position);
 
         TextView mainTextView = listItemView.findViewById(R.id.txt_vw_main);
         mainTextView.setText(currentTouple.getMiWokTranslation());

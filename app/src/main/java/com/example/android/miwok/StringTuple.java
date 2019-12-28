@@ -1,6 +1,6 @@
 package com.example.android.miwok;
 
-public class StringTouple {
+public class StringTuple {
 
     private String mStringMiWok;
     private String mStringEnglish;
@@ -8,13 +8,13 @@ public class StringTouple {
     private boolean mImageAvailable = false;
 
 
-    public StringTouple(String miwok, String eng) {
+    public StringTuple(String miwok, String eng) {
         mStringEnglish = eng;
         mStringMiWok = miwok;
         mImageAvailable = false;
     }
 
-    public StringTouple(String miwok, String eng, int imageId) {
+    public StringTuple(String miwok, String eng, int imageId) {
         mStringEnglish = eng;
         mStringMiWok = miwok;
         mImageID = imageId;
