@@ -39,7 +39,7 @@ public class NumbersActivity extends AppCompatActivity {
             numberWord.setText(numberStrings.get(ii));
             llNumbers.addView(numberWord);
 
-            //Log.v("MiWok Number Activity", "Word at index [" + ii + "] = " + numberStrings.get(ii));
+            Log.v("MiWok Number Activity", "Word at index [" + ii + "] = " + numberStrings.get(ii));
 
             ii++;
         }
