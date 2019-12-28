@@ -17,7 +17,7 @@ public class ColorsActivity extends AppCompatActivity {
         //String[] NumberStrings = new String[10];
         ArrayList<StringTouple> numberStrings = new ArrayList<StringTouple>();
 
-        numberStrings.add(new StringTouple("laal", "red"));
+        numberStrings.add(new StringTouple("लाल", "red"));
         numberStrings.add(new StringTouple("hara", "green"));
         numberStrings.add(new StringTouple("bhura", "brown"));
         numberStrings.add(new StringTouple("peela", "yellow"));
