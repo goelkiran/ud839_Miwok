@@ -29,7 +29,7 @@ public class NumbersActivity extends AppCompatActivity {
         numberStrings.add(new StringTouple("miwok", "nine"));
         numberStrings.add(new StringTouple("miwok", "ten"));
 
-        ArrayAdapter<StringTouple> itemsAdapter = new StringToupleAdapter(this, numberStrings);
+        StringToupleAdapter itemsAdapter = new StringToupleAdapter(this, numberStrings);
         ListView listView = (ListView) findViewById(R.id.root_view_numbers);
         listView.setAdapter(itemsAdapter);
 
