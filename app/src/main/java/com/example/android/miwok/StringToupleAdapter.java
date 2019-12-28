@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -39,8 +40,13 @@ public class StringToupleAdapter extends ArrayAdapter<StringTouple> {
         TextView subTextView = listItemView.findViewById(R.id.txt_vw_sub);
         subTextView.setText(currentTouple.getDefaultTranslation());
 
-        //ImageView iconView = (ImageView) listItemView.findViewById(R.id.list_item_icon);
-        //iconView.setImageResource(currentTouple.getImageResourceId());
+        ImageView iconView = (ImageView) listItemView.findViewById(R.id.img_vw_icon);
+
+        if (currentTouple.isImageAvailable()) {
+            iconView.setImageResource(currentTouple.getImageID());
+        } else {
+            iconView.setVisibility(View.GONE);
+        }
 
         return listItemView;
 

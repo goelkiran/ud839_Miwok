@@ -2,26 +2,42 @@ package com.example.android.miwok;
 
 public class StringTouple {
 
-    private String stringMiWok;
-    private String stringEnglish;
+    private String mStringMiWok;
+    private String mStringEnglish;
+    private int mImageID =0;
+    private boolean mImageAvailable = false;
+
 
     public StringTouple(String miwok, String eng) {
-        stringEnglish = eng;
-        stringMiWok = miwok;
+        mStringEnglish = eng;
+        mStringMiWok = miwok;
+        mImageAvailable = false;
+    }
+
+    public StringTouple(String miwok, String eng, int imageId) {
+        mStringEnglish = eng;
+        mStringMiWok = miwok;
+        mImageID = imageId;
+        mImageAvailable = true;
     }
 
     public String getMiWokTranslation() {
-        return stringMiWok;
-
+        return mStringMiWok;
     }
 
     public String getEnglishTranslation() {
-        return stringEnglish;
+        return mStringEnglish;
     }
 
     public String getDefaultTranslation() {
         return getEnglishTranslation();
     }
+
+    public int getImageID() {
+        return mImageID;
+    }
+
+    public boolean isImageAvailable() {return mImageAvailable; }
 }
 
 
