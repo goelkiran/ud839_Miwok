@@ -31,13 +31,12 @@ public class StringToupleAdapter extends ArrayAdapter<StringTouple> {
                     R.layout.list_items, parent, false);
         }
 
-        // Get the {@link AndroidFlavor} object located at this position in the list
         StringTouple currentTouple = getItem(position);
 
-        TextView mainTextView = (TextView) listItemView.findViewById(R.id.txt_vw_main);
+        TextView mainTextView = listItemView.findViewById(R.id.txt_vw_main);
         mainTextView.setText(currentTouple.getMiWokTranslation());
 
-        TextView subTextView = (TextView) listItemView.findViewById(R.id.txt_vw_sub);
+        TextView subTextView = listItemView.findViewById(R.id.txt_vw_sub);
         subTextView.setText(currentTouple.getDefaultTranslation());
 
         //ImageView iconView = (ImageView) listItemView.findViewById(R.id.list_item_icon);
