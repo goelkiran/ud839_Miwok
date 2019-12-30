@@ -20,7 +20,6 @@ import java.util.ArrayList;
 public class StringTupleAdapter extends ArrayAdapter<StringTuple> {
 
     private int mBackgroundColor;
-    private MediaPlayer mClipPlayer;
 
     public StringTupleAdapter(@NonNull Context context, ArrayList<StringTuple> st, int backgroundColor) {
         super(context, 0, st);
@@ -58,17 +57,8 @@ public class StringTupleAdapter extends ArrayAdapter<StringTuple> {
             iconView.setVisibility(View.GONE);
         }
 
-        ImageButton playButton = listItemView.findViewById(R.id.imgbtn_vw);
-        playButton.setBackgroundColor(mBackgroundColor);
-        playButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //Toast.makeText(getContext(), currentTouple.getEnglishTranslation(), Toast.LENGTH_SHORT).show();
-                mClipPlayer = MediaPlayer.create(getContext(),currentTouple.getAudioClipId());
-                mClipPlayer.start();
-            }
-        });
         return listItemView;
-
     }
+
+
 }

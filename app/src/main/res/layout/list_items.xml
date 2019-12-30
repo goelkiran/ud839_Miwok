@@ -46,10 +46,5 @@
 
     </LinearLayout>
 
-    <ImageButton
-        android:id="@+id/imgbtn_vw"
-        android:layout_width="88dp"
-        android:layout_height="88dp"
-        app:srcCompat="@android:drawable/ic_media_play" />
 
 </LinearLayout>
