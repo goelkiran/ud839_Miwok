@@ -6,6 +6,7 @@ public class StringTuple {
     private String mStringEnglish;
     private int mImageID = 0;
     private boolean mImageAvailable = false;
+    private int mAudioClipId;
 
 
     public StringTuple(String miwok, String eng) {
@@ -18,6 +19,21 @@ public class StringTuple {
         mStringEnglish = eng;
         mStringMiWok = miwok;
         mImageID = imageId;
+        mImageAvailable = true;
+    }
+
+    public StringTuple(int clipId, String miwok, String eng) {
+        mStringEnglish = eng;
+        mStringMiWok = miwok;
+        mAudioClipId = clipId;
+        mImageAvailable = false;
+    }
+
+    public StringTuple(int clipId, String miwok, String eng, int imageId) {
+        mStringEnglish = eng;
+        mStringMiWok = miwok;
+        mImageID = imageId;
+        mAudioClipId = clipId;
         mImageAvailable = true;
     }
 
@@ -35,6 +51,10 @@ public class StringTuple {
 
     public int getImageID() {
         return mImageID;
+    }
+
+    public int getAudioClipId() {
+        return mAudioClipId;
     }
 
     public boolean isImageAvailable() {

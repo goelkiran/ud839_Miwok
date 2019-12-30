@@ -5,8 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -35,7 +37,7 @@ public class StringTupleAdapter extends ArrayAdapter<StringTuple> {
                     R.layout.list_items, parent, false);
         }
 
-        StringTuple currentTouple = getItem(position);
+        final StringTuple currentTouple = getItem(position);
 
         TextView mainTextView = listItemView.findViewById(R.id.txt_vw_main);
         mainTextView.setText(currentTouple.getMiWokTranslation());
@@ -54,6 +56,13 @@ public class StringTupleAdapter extends ArrayAdapter<StringTuple> {
             iconView.setVisibility(View.GONE);
         }
 
+        ImageButton playButton = listItemView.findViewById(R.id.imgbtn_vw);
+        playButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), currentTouple.getEnglishTranslation(), Toast.LENGTH_SHORT).show();
+            }
+        });
         return listItemView;
 
     }
