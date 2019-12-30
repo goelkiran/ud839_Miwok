@@ -1,6 +1,7 @@
 package com.example.android.miwok;
 
 import android.content.Context;
+import android.media.MediaPlayer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +20,7 @@ import java.util.ArrayList;
 public class StringTupleAdapter extends ArrayAdapter<StringTuple> {
 
     private int mBackgroundColor;
+    private MediaPlayer mClipPlayer;
 
     public StringTupleAdapter(@NonNull Context context, ArrayList<StringTuple> st, int backgroundColor) {
         super(context, 0, st);
@@ -60,7 +62,9 @@ public class StringTupleAdapter extends ArrayAdapter<StringTuple> {
         playButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), currentTouple.getEnglishTranslation(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getContext(), currentTouple.getEnglishTranslation(), Toast.LENGTH_SHORT).show();
+                mClipPlayer = MediaPlayer.create(getContext(),currentTouple.getAudioClipId());
+                mClipPlayer.start();
             }
         });
         return listItemView;
