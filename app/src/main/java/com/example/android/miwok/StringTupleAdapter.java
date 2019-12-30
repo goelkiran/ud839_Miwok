@@ -59,6 +59,7 @@ public class StringTupleAdapter extends ArrayAdapter<StringTuple> {
         }
 
         ImageButton playButton = listItemView.findViewById(R.id.imgbtn_vw);
+        playButton.setBackgroundColor(mBackgroundColor);
         playButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
