@@ -60,6 +60,17 @@ public class StringTuple {
     public boolean isImageAvailable() {
         return mImageAvailable;
     }
+
+    @Override
+    public String toString() {
+        return "StringTuple{" +
+                "mStringMiWok='" + mStringMiWok + '\'' +
+                ", mStringEnglish='" + mStringEnglish + '\'' +
+                ", mImageID=" + mImageID +
+                ", mImageAvailable=" + mImageAvailable +
+                ", mAudioClipId=" + mAudioClipId +
+                '}';
+    }
 }
 
 
