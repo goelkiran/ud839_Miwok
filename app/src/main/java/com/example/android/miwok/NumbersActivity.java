@@ -1,5 +1,7 @@
 package com.example.android.miwok;
 
+import android.content.Context;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,8 +15,28 @@ import java.util.ArrayList;
 
 public class NumbersActivity extends AppCompatActivity {
 
+    AudioManager mAudioManager;
     private MediaPlayer mClipPlayer;
-    private MediaPlayer.OnCompletionListener mOnCompleteListner = new MediaPlayer.OnCompletionListener() {
+    AudioManager.OnAudioFocusChangeListener mAudioFocusChangeListener = new AudioManager.OnAudioFocusChangeListener() {
+        public void onAudioFocusChange(int focusChange) {
+            if (focusChange == AudioManager.AUDIOFOCUS_LOSS) {
+                // Permanent loss of audio focus
+                // Stop playback immediately
+                releaseMediaPlayer();
+            } else if (focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT ||
+                    focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK) {
+                mClipPlayer.pause();
+                mClipPlayer.seekTo(0);
+                // Pause playback
+            } else if (focusChange == AudioManager.AUDIOFOCUS_GAIN) {
+                // Your app has been granted audio focus again
+                // Raise volume to normal, restart playback if necessary
+                mClipPlayer.start();
+            }
+        }
+    };
+
+    private MediaPlayer.OnCompletionListener mOnCompleteListener = new MediaPlayer.OnCompletionListener() {
         @Override
         public void onCompletion(MediaPlayer mp) {
             releaseMediaPlayer();
@@ -25,6 +47,8 @@ public class NumbersActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.string_touples);
+
+        mAudioManager  = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
 
         //String[] NumberStrings = new String[10];
         final ArrayList<StringTuple> numberStrings = new ArrayList<StringTuple>();
@@ -47,14 +71,21 @@ public class NumbersActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int pos, long list_id) {
-
                 Log.v("Number Activity", "Current tuple = " + numberStrings.get(pos));
-                releaseMediaPlayer();
-                mClipPlayer = MediaPlayer.create(NumbersActivity.this, numberStrings.get(pos).getAudioClipId());
-                mClipPlayer.start();
-                //Toast.makeText(NumbersActivity.this, numberStrings.get(pos).getEnglishTranslation(), Toast.LENGTH_SHORT).show();
-                mClipPlayer.setOnCompletionListener(mOnCompleteListner);
 
+                // Request audio focus for playback
+                int result = mAudioManager.requestAudioFocus(mAudioFocusChangeListener,
+                        AudioManager.STREAM_MUSIC,
+                        AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
+
+                if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
+                    releaseMediaPlayer();
+                    mClipPlayer = MediaPlayer.create(NumbersActivity.this, numberStrings.get(pos).getAudioClipId());
+                    mClipPlayer.start();
+                    //Toast.makeText(NumbersActivity.this, numberStrings.get(pos).getEnglishTranslation(), Toast.LENGTH_SHORT).show();
+                    mClipPlayer.setOnCompletionListener(mOnCompleteListener);
+
+                }
             }
         });
     }
@@ -63,6 +94,7 @@ public class NumbersActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         releaseMediaPlayer();
+
     }
 
     /**
@@ -79,6 +111,8 @@ public class NumbersActivity extends AppCompatActivity {
             // setting the media player to null is an easy way to tell that the media player
             // is not configured to play an audio file at the moment.
             mClipPlayer = null;
+
+            mAudioManager.abandonAudioFocus(mAudioFocusChangeListener);
         }
     }
 }
