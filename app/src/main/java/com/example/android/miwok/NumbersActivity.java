@@ -48,7 +48,7 @@ public class NumbersActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.string_touples);
 
-        mAudioManager  = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+        mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
 
         //String[] NumberStrings = new String[10];
         final ArrayList<StringTuple> numberStrings = new ArrayList<StringTuple>();
